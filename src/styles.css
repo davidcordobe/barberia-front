@@ -161,102 +161,89 @@ ul {
     line-height: 40px;
 }
 
-/* Media query para dispositivos móviles */
+/* Media queries para dispositivos móviles */
 @media only screen and (max-width: 768px) {
     body {
-        justify-content: flex-start; /* Ajusta la alineación del contenido */
-        background-size: cover; /* Ajusta el tamaño del fondo para cubrir completamente el cuerpo */
+        justify-content: flex-start;
+        background-size: cover;
     }
 
     .container {
-        padding: 10px;
-        max-width: 100%; /* Hace que el contenedor se ajuste al ancho de la pantalla */
+        padding: 5%;
+        max-width: 100%;
     }
 
     h1 {
-        font-size: 28px;
-        margin-bottom: 15px; /* Ajusta el margen inferior */
+        font-size: 4vw; /* Usando vw para tamaño de fuente relativo al ancho de la pantalla */
+        margin-bottom: 2vh;
     }
 
     .turno-item {
-        flex: 0 0 calc(25% - 20px); /* Cambia el ancho de los elementos en la cuadrícula */
-        max-width: calc(25% - 20px); /* Asegura que no se desborde el ancho del elemento */
+        flex: 0 0 calc(25% - 10px);
+        max-width: calc(25% - 10px);
     }
 
     button {
-        font-size: 16px;
-        padding: 10px 20px; /* Ajusta el padding del botón */
+        font-size: 3vw;
+        padding: 2% 4%;
     }
 
     form {
-        padding: 10px; /* Añade un espacio interior al formulario */
+        padding: 5%;
     }
 
     input[type="date"],
     select {
-        width: 100%; /* Ajusta el ancho de los campos de entrada */
-        padding: 10px; /* Ajusta el espacio alrededor de los campos de entrada */
-        font-size: 16px; /* Ajusta el tamaño de la fuente de los campos de entrada */
+        width: 90%;
+        padding: 2%;
+        font-size: 3vw;
     }
 
     .footer {
-        padding: 10px; /* Añade un espacio interior al footer */
-        font-size: 14px; /* Reduce el tamaño de la fuente del footer */
+        padding: 5%;
+        font-size: 2vw;
     }
 }
 
 /* Media query para dispositivos móviles más pequeños */
 @media only screen and (max-width: 480px) {
-    body {
-        justify-content: flex-start; /* Ajusta la alineación del contenido */
-        background-size: cover; /* Ajusta el tamaño del fondo para cubrir completamente el cuerpo */
-    }
-
-    .container {
-        padding: 5px; /* Reducir el padding del contenedor */
-    }
-
     h1 {
-        font-size: 24px; /* Reducir el tamaño del título */
+        font-size: 5vw;
     }
 
     .turno-item {
-        flex: 0 0 calc(50% - 20px); /* Cambiar el ancho de los elementos en la cuadrícula */
-        max-width: calc(50% - 20px); /* Asegurar que no se desborde el ancho del elemento */
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
     }
 
     button {
-        font-size: 14px; /* Reducir el tamaño del botón */
-        padding: 8px 16px; /* Reducir el padding del botón */
+        font-size: 4vw;
+        padding: 3% 6%;
     }
 
     form {
-        padding: 5px; /* Reduce más el espacio interior del formulario */
+        padding: 5%;
     }
 
     input[type="date"],
     select {
-        padding: 8px; /* Reduce más el espacio alrededor de los campos de entrada */
-        font-size: 14px; /* Reduce más el tamaño de la fuente de los campos de entrada */
+        padding: 3%;
+        font-size: 4vw;
     }
 
     .footer {
-        padding: 5px; /* Reduce más el espacio interior del footer */
-        font-size: 12px; /* Reduce más el tamaño de la fuente del footer */
+        padding: 5%;
+        font-size: 3vw;
     }
 }
 
 /* Ajustes adicionales */
 @media only screen and (max-width: 320px) {
-    body {
-        justify-content: flex-start; /* Ajusta la alineación del contenido */
-        background-size: cover; /* Ajusta el tamaño del fondo para cubrir completamente el cuerpo */
-    }
     h1 {
-        font-size: 22px; /* Reducir aún más el tamaño del título para pantallas muy pequeñas */
+        font-size: 6vw;
     }
 
     .container {
-        padding: 3px; /* Reducir el padding del contenedor */
+        padding: 3%;
     }
 }
