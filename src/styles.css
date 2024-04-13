@@ -161,22 +161,38 @@ ul {
     line-height: 40px;
 }
 
-/* Media queries para dispositivos móviles */
-
+/* Media query para dispositivos móviles */
 @media only screen and (max-width: 768px) {
+    body {
+        justify-content: flex-start; /* Ajusta la alineación del contenido */
+    }
+
     .container {
         padding: 10px;
+        max-width: 100%; /* Hace que el contenedor se ajuste al ancho de la pantalla */
     }
 
     h1 {
         font-size: 28px;
+        margin-bottom: 15px; /* Ajusta el margen inferior */
     }
 
     .turno-item {
-        padding: 10px;
+        flex: 0 0 calc(25% - 20px); /* Cambia el ancho de los elementos en la cuadrícula */
+        max-width: calc(25% - 20px); /* Asegura que no se desborde el ancho del elemento */
     }
 
     button {
         font-size: 16px;
+        padding: 10px 20px; /* Ajusta el padding del botón */
+    }
+
+    form {
+        width: 100%; /* Ajusta el ancho del formulario */
+    }
+
+    input[type="date"],
+    select {
+        width: calc(100% - 24px); /* Ajusta el ancho de los campos de entrada */
     }
 }
