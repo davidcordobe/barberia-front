@@ -165,6 +165,7 @@ ul {
 @media only screen and (max-width: 768px) {
     body {
         justify-content: flex-start; /* Ajusta la alineación del contenido */
+        background-size: cover; /* Ajusta el tamaño del fondo para cubrir completamente el cuerpo */
     }
 
     .container {
@@ -196,7 +197,6 @@ ul {
         width: calc(100% - 24px); /* Ajusta el ancho de los campos de entrada */
     }
 }
-
 
 /* Media query para dispositivos móviles más pequeños */
 @media only screen and (max-width: 480px) {
