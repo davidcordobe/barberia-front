@@ -5,6 +5,7 @@ body {
     background-image: linear-gradient(to bottom, #00045a, #001964, #052a6b, #183970, #2b4874);
     color: #222;
     margin: 0;
+    background-size: cover;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -164,8 +165,10 @@ ul {
 /* Media queries para dispositivos móviles */
 @media only screen and (max-width: 768px) {
     body {
-        justify-content: flex-start;
+        justify-content: center; /* Centra horizontalmente el contenido */
+        align-items: center; /* Centra verticalmente el contenido */
         background-size: cover;
+        text-align: center; /* Centra el texto en el cuerpo */
     }
 
     .container {
@@ -173,8 +176,8 @@ ul {
         max-width: 100%;
     }
 
-    h1 {
-        font-size: 4vw; /* Usando vw para tamaño de fuente relativo al ancho de la pantalla */
+    h1, span {
+        font-size: 2vw;
         margin-bottom: 2vh;
     }
 
@@ -207,8 +210,14 @@ ul {
 
 /* Media query para dispositivos móviles más pequeños */
 @media only screen and (max-width: 480px) {
-    h1 {
-        font-size: 5vw;
+    body {
+        background-size: cover;
+        height: 100vh;
+        text-align: center;
+    }
+
+    h1, span {
+        font-size: 6vw;
     }
 
     .turno-item {
@@ -239,11 +248,24 @@ ul {
 
 /* Ajustes adicionales */
 @media only screen and (max-width: 320px) {
-    h1 {
-        font-size: 6vw;
+    body {
+        background-size: cover;
+        height: 100vh;
+        text-align: center;
+        position: relative; /* Añade posición relativa para el fondo */
+    }
+
+    h1, span {
+        font-size: 5vw;
     }
 
     .container {
         padding: 3%;
+    }
+
+    .footer {
+        position: absolute; /* Coloca el footer en posición absoluta */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        text-align: center; /* Centra el contenido del footer */
     }
 }
