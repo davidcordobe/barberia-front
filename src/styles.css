@@ -211,7 +211,7 @@ ul {
         justify-content: flex-start; /* Ajusta la alineación del contenido */
         background-size: cover; /* Ajusta el tamaño del fondo para cubrir completamente el cuerpo */
     }
-    
+
     .container {
         padding: 5px; /* Reducir el padding del contenedor */
     }
@@ -248,6 +248,10 @@ ul {
 
 /* Ajustes adicionales */
 @media only screen and (max-width: 320px) {
+    body {
+        justify-content: flex-start; /* Ajusta la alineación del contenido */
+        background-size: cover; /* Ajusta el tamaño del fondo para cubrir completamente el cuerpo */
+    }
     h1 {
         font-size: 22px; /* Reducir aún más el tamaño del título para pantallas muy pequeñas */
     }
