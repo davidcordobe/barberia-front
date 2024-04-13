@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     const fetchTurnos = async () => {
       try {
-        const response = await axios.get('http://barberia-back.onrender.com/turnos');
+        const response = await axios.get('https://barberia-back.onrender.com/turnos');
         setTurnos(response.data);
       } catch (error) {
         console.error('Error fetching turnos:', error);
@@ -47,7 +47,7 @@ const App = () => {
     }
 
     try {
-      await axios.post('http://barberia-back.onrender.com/turnos/reservar', { fechaHora: fechaHoraSeleccionada });
+      await axios.post('https://barberia-back.onrender.com/turnos/reservar', { fechaHora: fechaHoraSeleccionada });
       const nuevoTurno = { fechaHora: fechaHoraSeleccionada };
       setTurnos([...turnos, nuevoTurno].sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora))); // Ordenar los turnos por fecha/hora
       setFecha('');
