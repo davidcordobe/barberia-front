@@ -196,3 +196,31 @@ ul {
         width: calc(100% - 24px); /* Ajusta el ancho de los campos de entrada */
     }
 }
+
+
+/* Media query para dispositivos móviles más pequeños */
+@media only screen and (max-width: 480px) {
+    .container {
+        padding: 5px; /* Reducir el padding del contenedor */
+    }
+
+    h1 {
+        font-size: 24px; /* Reducir el tamaño del título */
+    }
+
+    .turno-item {
+        flex: 0 0 calc(50% - 20px); /* Cambiar el ancho de los elementos en la cuadrícula */
+        max-width: calc(50% - 20px); /* Asegurar que no se desborde el ancho del elemento */
+    }
+
+    button {
+        font-size: 14px; /* Reducir el tamaño del botón */
+        padding: 8px 16px; /* Reducir el padding del botón */
+    }
+
+    input[type="date"],
+    select {
+        width: calc(100% - 16px); /* Ajustar el ancho de los campos de entrada */
+        font-size: 14px; /* Reducir el tamaño de la fuente de los campos de entrada */
+    }
+}
