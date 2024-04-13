@@ -189,12 +189,19 @@ ul {
     }
 
     form {
-        width: 100%; /* Ajusta el ancho del formulario */
+        padding: 10px; /* Añade un espacio interior al formulario */
     }
 
     input[type="date"],
     select {
-        width: calc(100% - 24px); /* Ajusta el ancho de los campos de entrada */
+        width: 100%; /* Ajusta el ancho de los campos de entrada */
+        padding: 10px; /* Ajusta el espacio alrededor de los campos de entrada */
+        font-size: 16px; /* Ajusta el tamaño de la fuente de los campos de entrada */
+    }
+
+    .footer {
+        padding: 10px; /* Añade un espacio interior al footer */
+        font-size: 14px; /* Reduce el tamaño de la fuente del footer */
     }
 }
 
@@ -218,9 +225,29 @@ ul {
         padding: 8px 16px; /* Reducir el padding del botón */
     }
 
+    form {
+        padding: 5px; /* Reduce más el espacio interior del formulario */
+    }
+
     input[type="date"],
     select {
-        width: calc(100% - 16px); /* Ajustar el ancho de los campos de entrada */
-        font-size: 14px; /* Reducir el tamaño de la fuente de los campos de entrada */
+        padding: 8px; /* Reduce más el espacio alrededor de los campos de entrada */
+        font-size: 14px; /* Reduce más el tamaño de la fuente de los campos de entrada */
+    }
+
+    .footer {
+        padding: 5px; /* Reduce más el espacio interior del footer */
+        font-size: 12px; /* Reduce más el tamaño de la fuente del footer */
+    }
+}
+
+/* Ajustes adicionales */
+@media only screen and (max-width: 320px) {
+    h1 {
+        font-size: 22px; /* Reducir aún más el tamaño del título para pantallas muy pequeñas */
+    }
+
+    .container {
+        padding: 3px; /* Reducir el padding del contenedor */
     }
 }
