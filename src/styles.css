@@ -100,7 +100,7 @@ form {
 }
 
 input[type="date"],
-select {
+select, .cliente {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -196,7 +196,7 @@ ul {
     }
 
     input[type="date"],
-    select {
+    select, input[type="text"] {
         width: 90%;
         padding: 2%;
         font-size: 3vw;
@@ -235,7 +235,7 @@ ul {
     }
 
     input[type="date"],
-    select {
+    select, input[type="text"] {
         padding: 3%;
         font-size: 4vw;
     }

@@ -14,10 +14,14 @@ const App = () => {
   const [hora, setHora] = useState('08:00');
   const [horasDisponibles, setHorasDisponibles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [turnosPerPage] = useState(6); // Cantidad de turnos por página
-  const [mensajeReserva, setMensajeReserva] = useState(false); // Estado para mostrar el mensaje de reserva
-  const [showLoader, setShowLoader] = useState(false); // Estado para mostrar el loader
+  const [mensajeReserva, setMensajeReserva] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+  const [nombreCliente, setNombreCliente] = useState('');
   const scrollRef = useRef(null);
+  const [turno, setTurno] = useState({
+    tipoServicio: '',
+    nombreCliente: '',
+  });
 
   useEffect(() => {
     const fetchTurnos = async () => {
@@ -32,45 +36,58 @@ const App = () => {
     fetchTurnos();
   }, []);
 
+  const handleChange = (e) => {
+    setNombreCliente(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowLoader(true); // Mostrar loader al iniciar la reserva
 
-    const fechaHoraSeleccionada = moment(`${fecha}T${hora}`).toISOString();
-
-    // Verificar si el turno seleccionado ya está reservado
-    const turnoReservado = turnos.find(turno => moment(turno.fechaHora).toISOString() === fechaHoraSeleccionada);
-    if (turnoReservado) {
-      setShowLoader(false); // Ocultar loader
-      alert('El turno seleccionado ya está reservado. Por favor, elige otro turno.');
+    const selectedDate = moment(fecha);
+    if (selectedDate.day() === 0) {
+      alert('Los domingos no están disponibles para reservar turnos.');
       return;
     }
 
     try {
-      await axios.post('https://barberia-back.onrender.com/turnos/reservar', { fechaHora: fechaHoraSeleccionada });
+      setShowLoader(true);
+      const fechaHoraSeleccionada = moment(`${fecha}T${hora}`).toISOString();
+      const turnoReservado = turnos.find(turno => moment(turno.fechaHora).toISOString() === fechaHoraSeleccionada);
+      if (turnoReservado) {
+        alert('El turno seleccionado ya está reservado. Por favor, elige otro turno.');
+        return;
+      }
+
+      await axios.post('https://barberia-back.onrender.com/turnos/reservar', {
+        fechaHora: fechaHoraSeleccionada,
+        nombreCliente: nombreCliente,
+        tipoServicio: turno.tipoServicio
+      });
       const nuevoTurno = { fechaHora: fechaHoraSeleccionada };
-      setTurnos([...turnos, nuevoTurno].sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora))); // Ordenar los turnos por fecha/hora
+      setTurnos([...turnos, nuevoTurno].sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora)));
       setFecha('');
       setHora('08:00');
-      setMensajeReserva(true); // Mostrar mensaje de reserva
+      setNombreCliente('');
+      setMensajeReserva(true);
     } catch (error) {
       console.error('Error al reservar el turno:', error);
     } finally {
-      setShowLoader(false); // Ocultar loader después de completar la reserva
+      setShowLoader(false);
     }
   };
 
   const generarHorario = () => {
     const horas = [];
-    for (let hora = 8; hora < 20; hora++) {
-      for (let minuto of ['00', '30']) {
-        const horaFormateada = `${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
-        const fechaHoraSeleccionada = moment(`${fecha}T${horaFormateada}`).toISOString();
+    if (fecha) {
+      for (let hora = 8; hora < 21; hora++) {
+        for (let minuto of ['00', '30']) {
+          const horaFormateada = `${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
+          const fechaHoraSeleccionada = moment(`${fecha}T${horaFormateada}`).toISOString();
 
-        // Verificar si el turno está reservado
-        const turnoReservado = turnos.find(turno => moment(turno.fechaHora).toISOString() === fechaHoraSeleccionada);
-        if (!turnoReservado) {
-          horas.push(horaFormateada);
+          const turnoReservado = turnos.find(turno => moment(turno.fechaHora).toISOString() === fechaHoraSeleccionada);
+          if (!turnoReservado) {
+            horas.push(horaFormateada);
+          }
         }
       }
     }
@@ -89,12 +106,10 @@ const App = () => {
     moveBackground(x * 100, y * 100);
   };
 
-  // Calcular índices de inicio y fin de la lista de turnos por página
-  const indexOfLastTurno = currentPage * turnosPerPage;
-  const indexOfFirstTurno = indexOfLastTurno - turnosPerPage;
+  const indexOfLastTurno = currentPage * 6;
+  const indexOfFirstTurno = indexOfLastTurno - 6;
   const currentTurnos = turnos.slice(indexOfFirstTurno, indexOfLastTurno);
 
-  // Cambiar de página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -103,46 +118,53 @@ const App = () => {
       <div className='container' style={{ scrollBehavior: 'smooth' }}>
         <h1><span className='barber'>Lo De Masche Barber</span> </h1> <h1 className='reserva'>Reserva de Turnos</h1>
         <form onSubmit={handleSubmit}>
+          <input type="text" name="nombreCliente" value={nombreCliente} onChange={handleChange} className="cliente" placeholder="Nombre" required />
           <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} required />
           <select value={hora} onChange={(e) => setHora(e.target.value)} required>
             {horasDisponibles.map((horaDisponible) => (
               <option key={horaDisponible} value={horaDisponible}>{horaDisponible}</option>
             ))}
           </select>
+          <select
+            name="tipoServicio"
+            value={turno.tipoServicio}
+            onChange={(e) => setTurno({ ...turno, tipoServicio: e.target.value })}
+            className="input"
+            required
+          >
+            <option value="">Seleccionar</option>
+            <option value="Corte de Pelo">Corte de Pelo</option>
+            <option value="Afeitado">Corte y Barba</option>
+            <option value="Barba y Bigote">Barba y Bigote</option>
+          </select>
+
           <button
             type="submit"
             style={{ width: buttonSize, height: buttonSize }}
             onClick={increaseButtonSize}
-            disabled={showLoader} // Deshabilitar botón mientras se está reservando el turno
+            disabled={showLoader || !nombreCliente || (moment(fecha).day() === 0)}
           >
             {showLoader ? 'Reservando...' : 'Reservar Turno'}
           </button>
         </form>
-        {/* Mostrar mensaje de reserva */}
         {mensajeReserva && (
           <div className="alerta">
             <p>¡El turno se reservó correctamente!</p>
           </div>
         )}
-        {/* Mostrar loader */}
         {showLoader && <div className="loader">Cargando...</div>}
         <h2>Turnos reservados</h2>
-        <ul className='turnos-container' data-aos="fade-up"
-          data-aos-anchor-placement="bottom-bottom"
-          data-aos-duration="2000">
-          {currentTurnos.slice(0, 8).map((turno, index) => (
+        <ul className='turnos-container' data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
+          {currentTurnos.map((turno, index) => (
             <li key={index} className='turno-item' ref={index === currentTurnos.length - 1 ? scrollRef : null}>
               {moment(turno.fechaHora).format('DD-MM-YYYY HH:mm')}
             </li>
           ))}
         </ul>
-
-        {/* Paginación */}
         <div className="pagination">
           <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Anterior</button>
           <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastTurno >= turnos.length}>Siguiente</button>
         </div>
-
         <footer className="footer">
           <p>© 2024 Lo De Masche Barber. Todos los derechos reservados.</p>
         </footer>
