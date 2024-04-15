@@ -69,8 +69,8 @@ h2 {
 }
 
 .turno-item {
-    flex: 0 0 calc(12.5% - 20px); /* Calcula el ancho para que siempre haya 8 elementos por fila */
-    max-width: calc(12.5% - 10px); /* Para asegurar que no se desborde el ancho del elemento */
+    flex: 0 0 calc(40% - 10px); /* Calcula el ancho para que siempre haya 8 elementos por fila */
+    max-width: calc(20% - 10px); /* Para asegurar que no se desborde el ancho del elemento */
 }
 
 
@@ -100,13 +100,17 @@ form {
 }
 
 input[type="date"],
-select, .cliente {
+select, .cliente{
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-sizing: border-box;
     font-size: 16px;
+}
+
+input[type="text"]{
+    color: #ffff;
 }
 
 button {
@@ -177,7 +181,7 @@ ul {
     }
 
     h1, span {
-        font-size: 2vw;
+        font-size: 6vw;
         margin-bottom: 2vh;
     }
 
@@ -206,6 +210,11 @@ ul {
         padding: 5%;
         font-size: 2vw;
     }
+
+    .turno-item {
+        flex: 0 0 calc(33.33% - 10px); /* Mostrar 3 elementos por fila */
+        max-width: calc(33.33% - 10px);
+    }
 }
 
 /* Media query para dispositivos móviles más pequeños */
@@ -220,9 +229,15 @@ ul {
         font-size: 6vw;
     }
 
+    .turnos-container {
+        flex-direction: row; /* Cambiar la dirección de flexión a fila */
+        justify-content: center; /* Centrar los elementos horizontalmente */
+    }
+
     .turno-item {
-        flex: 0 0 calc(50% - 10px);
-        max-width: calc(50% - 10px);
+        flex: 0 0 calc(50% - 10px); /* Mostrar 2 elementos por fila */
+        max-width: calc(50% - 10px); /* Para asegurar que no se desborde el ancho del elemento */
+        margin: 0 5px; /* Eliminar el margen entre los elementos */
     }
 
     button {
@@ -238,6 +253,11 @@ ul {
     select, input[type="text"] {
         padding: 3%;
         font-size: 4vw;
+    }
+
+    .turno-item {
+        flex: 0 0 calc(50% - 10px); /* Mostrar 2 elementos por fila */
+        max-width: calc(50% - 10px);
     }
 
     .footer {
@@ -261,6 +281,12 @@ ul {
 
     .container {
         padding: 3%;
+    }
+
+    .turno-item {
+        flex: 0 0 calc(100% - 20px); /* Mostrar 1 elemento por fila */
+        max-width: calc(100% - 20px); /* Para asegurar que no se desborde el ancho del elemento */
+        margin: 0 5px; /* Eliminar el margen entre los elementos */
     }
 
     .footer {

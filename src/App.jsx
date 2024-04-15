@@ -106,8 +106,8 @@ const App = () => {
     moveBackground(x * 100, y * 100);
   };
 
-  const indexOfLastTurno = currentPage * 6;
-  const indexOfFirstTurno = indexOfLastTurno - 6;
+  const indexOfLastTurno = currentPage * 4;
+  const indexOfFirstTurno = indexOfLastTurno - 4;
   const currentTurnos = turnos.slice(indexOfFirstTurno, indexOfLastTurno);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
