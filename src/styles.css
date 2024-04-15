@@ -276,7 +276,7 @@ ul {
     }
 
     h1, span {
-        font-size: 5vw;
+        font-size: 3vw;
     }
 
     .container {
@@ -287,6 +287,11 @@ ul {
         flex: 0 0 calc(100% - 20px); /* Mostrar 1 elemento por fila */
         max-width: calc(100% - 20px); /* Para asegurar que no se desborde el ancho del elemento */
         margin: 0 5px; /* Eliminar el margen entre los elementos */
+    }
+
+    .turnos-container {
+        flex-direction: row; /* Cambiar la dirección de flexión a fila */
+        justify-content: center; /* Centrar los elementos horizontalmente */
     }
 
     .footer {
