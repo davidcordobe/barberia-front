@@ -150,7 +150,7 @@ const App = () => {
           >
             <option value="">Seleccionar</option>
             <option value="Corte de Pelo">Corte de Pelo</option>
-            <option value="Afeitado">Corte y Barba</option>
+            <option value="Corte y Barba">Corte y Barba</option>
             <option value="Barba y Bigote">Barba y Bigote</option>
           </select>
 
