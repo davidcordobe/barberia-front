@@ -23,6 +23,9 @@ const App = () => {
     nombreCliente: '',
   });
 
+  // Estado para almacenar la cantidad de turnos por página
+  const [turnosPorPagina, setTurnosPorPagina] = useState(4);
+
   useEffect(() => {
     const fetchTurnos = async () => {
       try {
@@ -34,6 +37,19 @@ const App = () => {
     };
 
     fetchTurnos();
+  }, []);
+
+  // Función para actualizar la cantidad de turnos por página cuando cambia el tamaño de la pantalla
+  const updateTurnosPorPagina = () => {
+    setTurnosPorPagina(window.innerWidth < 768 ? 2 : 4);
+  };
+
+  // Escucha el evento 'resize' para actualizar la cantidad de turnos por página
+  useEffect(() => {
+    window.addEventListener('resize', updateTurnosPorPagina);
+    return () => {
+      window.removeEventListener('resize', updateTurnosPorPagina);
+    };
   }, []);
 
   const handleChange = (e) => {
@@ -106,8 +122,8 @@ const App = () => {
     moveBackground(x * 100, y * 100);
   };
 
-  const indexOfLastTurno = currentPage * 4;
-  const indexOfFirstTurno = indexOfLastTurno - 4;
+  const indexOfLastTurno = currentPage * turnosPorPagina;
+  const indexOfFirstTurno = indexOfLastTurno - turnosPorPagina;
   const currentTurnos = turnos.slice(indexOfFirstTurno, indexOfLastTurno);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
