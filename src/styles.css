@@ -45,7 +45,7 @@ h2 {
     text-align: center;
 }
 
-.alerta {
+.alerta, .loader {
     background-color: #3a3939;
     color: #06af00;
     font-size: 20px;
@@ -54,6 +54,7 @@ h2 {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 15px;
+    box-shadow: 0px 0px 6px 0px #fff;
 }
 
 /* Estilos de la cuadrícula de turnos */
