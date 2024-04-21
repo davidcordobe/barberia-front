@@ -159,6 +159,8 @@ ul {
     height: 40px;
     line-height: 40px;
     box-shadow: 0px 0px 2px 0px #a8a8a8;
+    margin-top: 30px;
+    overflow-wrap: break-word;
 }
 
 /* Media queries para dispositivos móviles */
@@ -206,7 +208,7 @@ ul {
         position: static; /* Restablece la posición a la estándar */
         bottom: auto; /* Restablece la posición en la parte inferior */
         left: auto; /* Restablece la posición a la izquierda */
-        width: 100%; /* Ocupa todo el ancho */
+        width: 95%; /* Ocupa todo el ancho */
         padding: 20px; /* Añade un poco de espacio alrededor */
         text-align: center; /* Centra el contenido horizontalmente */
         font-size: 14px; /* Ajusta el tamaño de fuente */
@@ -266,10 +268,12 @@ ul {
         position: static; /* Restablece la posición a la estándar */
         bottom: auto; /* Restablece la posición en la parte inferior */
         left: auto; /* Restablece la posición a la izquierda */
-        width: 100%; /* Ocupa todo el ancho */
-        padding: 20px; /* Añade un poco de espacio alrededor */
+        width: 91%; /* Ocupa todo el ancho */
+        height: 80px;
+        padding: 10px; /* Añade un poco de espacio alrededor */
         text-align: center; /* Centra el contenido horizontalmente */
         font-size: 14px; /* Ajusta el tamaño de fuente */
+        overflow-wrap: break-word;
     }
 }
 
@@ -305,13 +309,14 @@ ul {
     }
 
     .footer {
-        /* Restablece cualquier estilo previo */
-        position: static; /* Restablece la posición a la estándar */
-        bottom: auto; /* Restablece la posición en la parte inferior */
-        left: auto; /* Restablece la posición a la izquierda */
-        width: 100%; /* Ocupa todo el ancho */
-        padding: 20px; /* Añade un poco de espacio alrededor */
-        text-align: center; /* Centra el contenido horizontalmente */
-        font-size: 14px; /* Ajusta el tamaño de fuente */
+        position: absolute; /* Posición absoluta */
+        left: 0; /* A la izquierda */
+        width: 100%; /* Ancho completo */
+        height: 100px;
+        padding: 10px; /* Añade espacio interno */
+        text-align: center; /* Centra el texto horizontalmente */
+        font-size: 14px; /* Tamaño de fuente */
+        box-sizing: border-box; /* Incluye el padding en el ancho */
+        overflow-wrap: break-word; /* Rompe las palabras largas */
     }
 }
