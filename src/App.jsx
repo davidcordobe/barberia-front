@@ -5,6 +5,9 @@ import './styles.css';
 import useStore from './store';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Logo from './Logo';
+
+
 
 AOS.init();
 
@@ -132,7 +135,8 @@ const App = () => {
     <div className="App" onMouseMove={handleMouseMove}>
       <div className="background" style={{ backgroundPositionX: `${backgroundPositionX}%`, backgroundPositionY: `${backgroundPositionY}%` }} />
       <div className='container' style={{ scrollBehavior: 'smooth' }}>
-        <h1><span className='barber'>Lo De Masche Barber</span> </h1> <h1 className='reserva'>Reserva de Turnos</h1>
+      <Logo alt="Masche Barber" />
+        <h1 className='reserva'>Reserva de Turnos</h1>
         <form onSubmit={handleSubmit}>
           <input type="text" name="nombreCliente" value={nombreCliente} onChange={handleChange} className="cliente" placeholder="Nombre" required />
           <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} required />
@@ -153,7 +157,7 @@ const App = () => {
             <option value="Corte y Barba">Corte y Barba</option>
             <option value="Barba y Bigote">Barba y Bigote</option>
           </select>
-
+  
           <button
             type="submit"
             style={{ width: buttonSize, height: buttonSize }}
@@ -187,6 +191,7 @@ const App = () => {
       </div>
     </div>
   );
+  
 };
 
 export default App;
