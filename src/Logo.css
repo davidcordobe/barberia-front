@@ -30,7 +30,7 @@
 
 @media screen and (max-width: 320px){
     .logo {
-        width: 25%;
+        width: 50%;
         /* Ajusta el ancho según tu necesidad */
         max-width: none; /* Quita la limitación de ancho máximo */
         height: auto;
