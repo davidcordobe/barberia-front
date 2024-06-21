@@ -1,0 +1,17 @@
+/* App.css */
+body{
+  background-color: #222121;
+}
+
+/* Estilo básico para asegurar que el contenido no se superponga con el footer */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa al menos todo el alto de la ventana */
+}
+
+.content {
+  flex: 1; /* Ocupa todo el espacio disponible en la columna */
+  padding: 20px; /* Añade espacio entre el contenido y el borde */
+}
+
