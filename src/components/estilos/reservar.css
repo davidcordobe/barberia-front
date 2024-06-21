@@ -32,12 +32,13 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin: 0 auto; /* Centro horizontal */
+    display: block; /* Necesario para que el margen automático funcione */
 }
 
 .form-container button:hover {
     background-color: #0056b3;
 }
-
 
 
 div .pago {
@@ -49,3 +50,9 @@ div .pago {
     text-align: center;
 }
 
+.seña{
+    font-weight: bold;
+    border: 1px solid #808080;
+    padding: 10px;
+    border-radius: 4px;
+    }

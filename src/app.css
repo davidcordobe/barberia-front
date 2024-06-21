@@ -19,3 +19,39 @@ h1{
   text-align: center;
   color: #bba004;
   font-family: sans-serif;}
+
+/* Media queries para dispositivos más pequeños */
+@media (max-width: 768px) {
+  .content {
+      margin: 10px;
+      max-width: 90%;
+  }
+
+  .form-container {
+      height: auto;
+      flex-direction: column; /* Cambia la dirección del flex a columna */
+      padding: 20px;
+  }
+
+  .form-container button {
+      width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+      padding: 10px;
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+      margin: 5px;
+      max-width: 100%;
+  }
+
+  .form-container {
+      padding: 10px;
+  }
+
+  .form-container button {
+      padding: 8px;
+      font-size: 12px;
+  }
+}

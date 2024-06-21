@@ -115,7 +115,7 @@ const ReservarTurno = () => {
                 </div>
                 <div>
                     <label>Monto Seña:</label>
-                    <p>{montoSeña ? `$${montoSeña}` : 'Seleccione un tipo de servicio'}</p>
+                    <p className='seña'>{montoSeña ? `$${montoSeña}` : 'Seleccione un tipo de servicio'}</p>
                 </div>
                 
                 <button type="submit">Reservar Turno</button>
