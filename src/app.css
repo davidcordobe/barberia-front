@@ -15,3 +15,7 @@ body{
   padding: 20px; /* Añade espacio entre el contenido y el borde */
 }
 
+h1{
+  text-align: center;
+  color: #bba004;
+  font-family: sans-serif;}

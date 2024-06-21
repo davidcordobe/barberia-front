@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './Horarios.css'
+import './estilos/Horarios.css'
 
 const HorariosDisponibles = () => {
     const [fecha, setFecha] = useState('');

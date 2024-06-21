@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './reservar.css';
+import './estilos/reservar.css';
 
 const ReservarTurno = () => {
     const [nombreCliente, setNombreCliente] = useState('');
@@ -81,7 +81,7 @@ const ReservarTurno = () => {
     };
 
     return (
-        <div className="reservar-container">
+        <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Nombre:</label>
