@@ -120,7 +120,7 @@ const ReservarTurno = () => {
                 
                 <button type="submit">Reservar Turno</button>
             </form>
-            {mensaje && <p>{mensaje}</p>}
+            {mensaje && <p className='pago'>{mensaje}</p>}
         </div>
     );
 };

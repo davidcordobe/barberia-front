@@ -37,3 +37,15 @@
 .form-container button:hover {
     background-color: #0056b3;
 }
+
+
+
+div .pago {
+    color: #ff0000;
+    font-size: 20px;
+    border: 1px solid #bba004;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
