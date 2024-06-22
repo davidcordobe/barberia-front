@@ -3,7 +3,6 @@
     color: #bba004;
     padding: 20px 0;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
     z-index: 1;
@@ -17,4 +16,33 @@
 .footer p {
     margin: 5px 0;
     font-size: 14px;
+}
+
+/* Media queries para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+
+    .footer-content {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 10px 0;
+    }
+
+    .footer p {
+        font-size: 10px;
+    }
+
+    .footer-content {
+        padding: 0 10px;
+    }
 }
