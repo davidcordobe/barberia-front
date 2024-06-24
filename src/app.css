@@ -3,6 +3,7 @@ body{
   background-color: #222121;
 }
 
+
 /* Estilo básico para asegurar que el contenido no se superponga con el footer */
 .app-container {
   display: flex;
@@ -13,6 +14,13 @@ body{
 .content {
   flex: 1; /* Ocupa todo el espacio disponible en la columna */
   padding: 20px; /* Añade espacio entre el contenido y el borde */
+}
+
+img{
+  width: 250px;
+  border-radius: 60%;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 h1{
