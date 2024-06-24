@@ -2,6 +2,8 @@ import ReservaTurno from './components/ReservarTurno';
 import Footer from './components/Footer';
 import './app.css'; // Importa estilos generales de la aplicación
 
+
+
 const App = () => {
     return (
         <div className="app-container">
