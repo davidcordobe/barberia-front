@@ -5,7 +5,7 @@ import './app.css'; // Importa estilos generales de la aplicación
 const App = () => {
     return (
         <div className="app-container">
-            <img src="../public/fondo/MASCHEBARBER.jpg" alt="Masche Barber" />
+            <img src="./logo/MASCHEBARBER.jpg" alt="Masche Barber" />
             <h1>Reserva tu Turno!</h1>
             <div className="content">
                 <ReservaTurno />
