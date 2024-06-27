@@ -1,11 +1,13 @@
+
 import ReservaTurno from './components/ReservarTurno';
 import Footer from './components/Footer';
 import './app.css'; // Importa estilos generales de la aplicación
+import logo from './logo/MASCHEBARBER.jpg'; // Importa la imagen
 
 const App = () => {
     return (
         <div className="app-container">
-            <img src="./logo/MASCHEBARBER.jpg" alt="Masche Barber" />
+            <img src={logo} alt="Masche Barber" /> {/* Usa la imagen importada */}
             <h1>Reserva tu Turno!</h1>
             <div className="content">
                 <ReservaTurno />
