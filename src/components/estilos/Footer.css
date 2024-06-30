@@ -11,11 +11,24 @@
 .footer-content {
     max-width: 960px;
     margin: 0 auto;
+    color: inherit;
 }
 
 .footer p {
     margin: 5px 0;
     font-size: 14px;
+}
+
+a{
+    font-size: 2em;
+    color: #bba004}
+
+.footer-content .whatsapp:hover {
+    color: #25D366; /* Color for WhatsApp */
+}
+
+.footer-content .instagram:hover {
+    color: #E1306C; /* Color for Instagram */
 }
 
 /* Media queries para dispositivos más pequeños */

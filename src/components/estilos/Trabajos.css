@@ -1,0 +1,16 @@
+.img-construccion {
+    width: 400px; /* Ajusta este valor según tus necesidades */
+    height: 400px; /* Ajusta este valor según tus necesidades */
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
+}
+
+h2, p {
+    color: #bba004;
+    font-size: 20px;
+    text-align: center;
+}

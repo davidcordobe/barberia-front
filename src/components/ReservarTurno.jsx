@@ -83,6 +83,7 @@ const ReservarTurno = () => {
     return (
         <div className="form-container">
             <form onSubmit={handleSubmit}>
+                <h1>Reserva tu Turno!</h1>
                 <div>
                     <label>Nombre:</label>
                     <input type="text" value={nombreCliente} onChange={(e) => setNombreCliente(e.target.value)} required />
@@ -117,7 +118,7 @@ const ReservarTurno = () => {
                     <label>Monto Seña:</label>
                     <p className='seña'>{montoSeña ? `$${montoSeña}` : 'Seleccione un tipo de servicio'}</p>
                 </div>
-                
+
                 <button type="submit">Reservar Turno</button>
             </form>
             {mensaje && <p className='pago'>{mensaje}</p>}
