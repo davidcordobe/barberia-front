@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import './app.css';
 import logo from './logo/MASCHEBARBER.png';
 import Trabajos from './components/Trabajos';
+import   Ubicacion from './components/Ubicacion';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<ReservaTurno />} />
                         <Route path="/Trabajos" element={<Trabajos />} />
+                        <Route path='/Ubicacion' element={<Ubicacion />} />
                     </Routes>
                 </div>
             </Router>

@@ -14,6 +14,9 @@ function NavbarComponent() {
                             <li className="nav-item">
                                 <BotonComponent ruta={'/Trabajos'} nombre={'Trabajos'} />
                             </li>
+                            <li className="nav-item">
+                                <BotonComponent ruta={'/Ubicacion'} nombre={'Ubicación'} />
+                            </li>
                         </ul>
                     </div>
                 </div>
