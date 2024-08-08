@@ -9,6 +9,8 @@ import Trabajos from './components/Trabajos';
 import   Ubicacion from './components/Ubicacion';
 
 
+
+
 const App = () => {
     return (
         <div className="app-container">
