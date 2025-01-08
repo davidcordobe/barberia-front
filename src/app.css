@@ -1,6 +1,6 @@
 /* App.css */
 body{
-  background-color: #222121;
+  background-color: #000000;
 }
 
 
@@ -17,15 +17,14 @@ body{
 }
 
 img{
-  width: 250px;
-  border-radius: 60%;
+  width: 300px;
   justify-content: center;
   margin: 0 auto;
 }
 
 h1{
   text-align: center;
-  color: #bba004;
+  color: #19db01;
   font-family: sans-serif;}
 
 /* Media queries para dispositivos más pequeños */

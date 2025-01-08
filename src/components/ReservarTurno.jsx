@@ -12,40 +12,49 @@ const ReservarTurno = () => {
     const [horariosDisponibles, setHorariosDisponibles] = useState([]);
     const [mensaje, setMensaje] = useState('');
 
-    // Efecto para definir el monto de la seña según el tipo de servicio seleccionado
+    // Definir el monto de la seña según el tipo de servicio seleccionado
     useEffect(() => {
-        switch (tipoServicio) {
-            case 'Corte de pelo':
-            case 'Corte de pelo y barba':
-            case 'Barba y bigote':
-                setMontoSeña(1500);
-                break;
-            default:
-                setMontoSeña('');
+        const serviciosConSeña = [
+            'Corte de pelo', 
+            'Corte de pelo y barba', 
+            'Barba y bigote',
+            'Limpieza Facial Express',
+            'Limpieza Facial Completa',
+            'Arquitectura De Cejas',
+            'Perfilado De Cejas',
+            'Diseño Con Henna',
+            'Laminado De Cejas',
+            'Combo - Corte + Barba + Limpieza Express',
+            'Combo - Arquitectura + Limpieza Express',
+            'Combo - Perfilado + Laminado',
+            'Combo - Diseño Con Henna + Perfilado',
+            'Combo - Perfeccionamiento De Cejas + Limpieza Completa'
+        ];
+
+        if (serviciosConSeña.includes(tipoServicio)) {
+            setMontoSeña(2500);
+        } else {
+            setMontoSeña('');
         }
     }, [tipoServicio]);
 
-    // Efecto para obtener los horarios disponibles cuando se selecciona una fecha
+    // Obtener los horarios disponibles cuando se selecciona una fecha
     useEffect(() => {
         const fetchHorariosDisponibles = async () => {
             if (fecha) {
-                const diaSemana = new Date(fecha).getUTCDay(); // Obtener día de la semana correctamente
-                console.log("Día de la semana seleccionado:", diaSemana); // Debug
+                const diaSemana = new Date(fecha).getUTCDay();
                 if (diaSemana === 0) { // Si es domingo
                     setHorariosDisponibles([]);
                     setMensaje('No se pueden seleccionar turnos los domingos.');
                 } else {
                     try {
-                        console.log("Fetching horarios disponibles for fecha:", fecha); // Debug
                         const response = await axios.get('https://barberia-back.onrender.com/turnos/horarios-disponibles', {
                             params: { fecha }
                         });
-                        console.log("Horarios disponibles recibidos del backend:", response.data); // Debug
                         setHorariosDisponibles(response.data);
-                        setHora(''); // Reiniciar la selección de hora al cambiar la fecha
-                        setMensaje(''); // Limpiar el mensaje si no es domingo
+                        setHora('');
+                        setMensaje('');
                     } catch (error) {
-                        console.error('Error al obtener horarios disponibles:', error);
                         setMensaje('Error al obtener horarios disponibles.');
                     }
                 }
@@ -75,9 +84,7 @@ const ReservarTurno = () => {
 
     // Manejar el cambio de fecha para obtener los horarios disponibles
     const handleFechaChange = (e) => {
-        const selectedDate = e.target.value;
-        console.log("Fecha seleccionada:", selectedDate); // Debug
-        setFecha(selectedDate);
+        setFecha(e.target.value);
     };
 
     return (
@@ -96,9 +103,20 @@ const ReservarTurno = () => {
                     <label>Tipo de Servicio:</label>
                     <select value={tipoServicio} onChange={(e) => setTipoServicio(e.target.value)} required>
                         <option value="" disabled>Selecciona un servicio</option>
+                        <option value="Combo - Corte + Barba + Limpieza Express">Combo - Corte + Barba + Limpieza Express</option>
+                        <option value="Combo - Arquitectura + Limpieza Express">Combo - Arquitectura + Limpieza Express</option>
+                        <option value="Combo - Perfilado + Laminado">Combo - Perfilado + Laminado</option>
+                        <option value="Combo - Diseño Con Henna + Perfilado">Combo - Diseño Con Henna + Perfilado</option>
+                        <option value="Combo - Perfeccionamiento De Cejas + Limpieza Completa">Combo - Perfeccionamiento De Cejas + Limpieza Completa</option>
                         <option value="Corte de pelo">Corte de pelo</option>
                         <option value="Corte de pelo y barba">Corte de pelo y barba</option>
                         <option value="Barba y bigote">Barba y bigote</option>
+                        <option value="Limpieza Facial Express">Limpieza Facial Express</option>
+                        <option value="Limpieza Facial Completa">Limpieza Facial Completa</option>
+                        <option value="Arquitectura De Cejas">Arquitectura De Cejas</option>
+                        <option value="Perfilados De Cejas">Perfilados De Cejas</option>
+                        <option value="Diseño Con Henna">Diseño Con Henna</option>
+                        <option value="Laminado De Cejas">Laminado De Cejas</option>
                     </select>
                 </div>
                 <div>
@@ -119,7 +137,7 @@ const ReservarTurno = () => {
                     <p className='seña'>{montoSeña ? `$${montoSeña}` : 'Seleccione un tipo de servicio'}</p>
                 </div>
 
-                <button type="submit">Reservar Turno</button>
+                <button type="submit" disabled={!nombreCliente || !emailCliente || !tipoServicio || !fecha || !hora}>Reservar Turno</button>
             </form>
             {mensaje && <p className='pago'>{mensaje}</p>}
         </div>

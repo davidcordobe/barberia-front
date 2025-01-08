@@ -4,7 +4,7 @@ import NavbarComponent from './components/NavbarComponent';
 import ReservaTurno from './components/ReservarTurno'; // Ajusta la importación según sea necesario
 import Footer from './components/Footer';
 import './app.css';
-import logo from './logo/MASCHEBARBER.png';
+import logo from './logo/ENTRENOSOTROS.png';
 import Trabajos from './components/Trabajos';
 import   Ubicacion from './components/Ubicacion';
 
