@@ -5,12 +5,11 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <p>&copy; 2024 MASCHE BARBER | Todos los derechos reservados</p>
-                <p>Desarrollado por: Masche Barber</p>
-                <a href="https://www.instagram.com/maschebarber.cba" target="_blank" rel="noopener noreferrer" className='instagram'>
+                <p>&copy; 2025 ENTRENOSOTROS BARBER | Todos los derechos reservados</p>
+                <a href="https://www.instagram.com/entrenosotrosbarber" target="_blank" rel="noopener noreferrer" className='instagram'>
                     <FaInstagram />
                 </a>
-                <a href="https://wa.me/+543517050225" target="_blank" rel="noopener noreferrer" className='whatsapp'>
+                <a href="https://wa.me/+543512715524" target="_blank" rel="noopener noreferrer" className='whatsapp'>
                     <FaWhatsapp />
                 </a>
             </div>
